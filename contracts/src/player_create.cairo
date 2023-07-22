@@ -12,13 +12,13 @@ mod PlayerCreate {
         ) {
         
         let caller = starknet::get_tx_info().unbox().account_contract_address;
-        let (map) = get !(ctx.world, map_id.into(), Map);
+        // let (map) = get !(ctx.world, map_id.into(), Map);
 
         // let (, ) = get !(ctx.world, (, ).into(), (,));
 
         set !(
             ctx.world,
-            (caller, ctx.origin.into()).into(),
+            (caller, map.map_id).into(),
             (Player { 
                 player_address: caller,
                 player_balance: 1000, 

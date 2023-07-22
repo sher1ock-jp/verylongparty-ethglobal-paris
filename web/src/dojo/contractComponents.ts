@@ -4,12 +4,19 @@ import { defineComponent, Type as RecsType, World } from "@latticexyz/recs";
 
 export function defineContractComponents(world: World) {
   return {
-    Moves: (() => {
-      const name = "Moves";
+    Sqaure: (() => {
+      const name = "Sqaure";
       return defineComponent(
         world,
         {
-          remaining: RecsType.Number,
+          square_id: RecsType.Number,
+          square_creater: RecsType.String,
+          square_description: RecsType.String,
+          is_square_balance_add: RecsType.Boolean,
+          square_balance: RecsType.Number,
+          is_square_quest: RecsType.Boolean,
+          square_quest_contract_address: RecsType.String,
+          square_quest_description: RecsType.String,
         },
         {
           metadata: {
@@ -18,13 +25,15 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
-    Position: (() => {
-      const name = "Position";
+    Player: (() => {
+      const name = "Player";
       return defineComponent(
         world,
         {
-          x: RecsType.Number,
-          y: RecsType.Number,
+          player_position: RecsType.Number,
+          player_address: RecsType.String,
+          player_balance: RecsType.Number,
+          player_quest_status: RecsType.Boolean,
         },
         {
           metadata: {
@@ -33,26 +42,13 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
-    AuthStatus: (() => {
-      const name = "AuthStatus";
+    Map: (() => {
+      const name = "Map";
       return defineComponent(
         world,
         {
-          is_authorized: RecsType.Boolean,
-        },
-        {
-          metadata: {
-            name: name,
-          },
-        }
-      );
-    })(),
-    AuthRole: (() => {
-      const name = "AuthRole";
-      return defineComponent(
-        world,
-        {
-          id: RecsType.Number,
+          map_id: RecsType.Number,
+          map_name: RecsType.String,
         },
         {
           metadata: {
