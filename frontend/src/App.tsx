@@ -37,7 +37,7 @@ const App = () => {
   const setAccount = useStoreWallet(state => state.setAccount);
   const providerFromContext = useStoreWallet(state => state.provider);
   const setProvider = useStoreWallet(state => state.setProvider);
-  const {systemCalls: { gameStart, squareCreate }} = useDojo();
+  const {systemCalls: { map_create, square_create, player_create, player_move, quest_done, back_to_start }} = useDojo();
 
   const handleConnectClick = async () => {
     const wallet: StarknetWindowObject | null = await connect({ modalMode: "alwaysAsk", modalTheme: "light" });
@@ -91,7 +91,6 @@ const App = () => {
               </div>
             ) : (
               <div className="action-area">
-                <GameStart />
               </div>
             )}
           </div>
