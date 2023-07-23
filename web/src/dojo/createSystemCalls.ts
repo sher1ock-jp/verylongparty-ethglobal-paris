@@ -53,8 +53,6 @@ export function createSystemCalls(
         console.log("Back to start")
     };
 
-
-
     return {
         map_create,
         square_create,

@@ -16,7 +16,7 @@ mod MapCreate {
         set !(
             ctx.world,
             ctx.origin.into(),
-            (Maps { map_id: map_id, map_name: map_name })
+            (Map { map_id: map_id, map_name: map_name })
         );
     }
 }

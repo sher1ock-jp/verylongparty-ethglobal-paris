@@ -2,9 +2,11 @@
 mod SquareCreate {
     use array::ArrayTrait;
     use traits::Into;
+    use starknet::ContractAddress;
+
     use dojo::world::Context;
 
-    use verylongbrothers::components::Player;
+    use verylongbrothers::components::Square;
 
     fn execute(
         ctx: Context, 
@@ -16,12 +18,13 @@ mod SquareCreate {
         square_quest_description: felt252,
         map_id: u32,
         square_id: u32,
+        caller: ContractAddress,
         ) {
 
-        let caller = starknet::get_tx_info().unbox().account_contract_address;
-        let (square) = get !(ctx.world, map_id.into(), Square);
+        // let caller = starknet::ContractAddress;
+        let square = get !(ctx.world, map_id.into(), Square);
 
-        assert(square.id == square_id, 'Square is already used');
+        assert(square.square_id == square_id, 'Square is already used');
 
         // let (, ) = get !(ctx.world, (, ).into(), (,));
 

@@ -2,6 +2,8 @@
 mod PlayerCreate {
     use array::ArrayTrait;
     use traits::Into;
+    use starknet::ContractAddress;
+
     use dojo::world::Context;
 
     use verylongbrothers::components::Player;
@@ -9,20 +11,22 @@ mod PlayerCreate {
     fn execute(
         ctx: Context, 
         map_id: u32,
+        caller: ContractAddress,
         ) {
         
-        let caller = starknet::get_tx_info().unbox().account_contract_address;
-        // let (map) = get !(ctx.world, map_id.into(), Map);
+        // let caller = use starknet::ContractAddress;
+        // let map = get !(ctx.world, map_id.into(), Map);
 
         // let (, ) = get !(ctx.world, (, ).into(), (,));
 
         set !(
             ctx.world,
-            (caller, map.map_id).into(),
+            (caller, map_id).into(),
             (Player { 
+                player_position: 1,
                 player_address: caller,
                 player_balance: 1000, 
-                get_player_quest_status: false,
+                player_quest_status: false,
             })
         );
     }

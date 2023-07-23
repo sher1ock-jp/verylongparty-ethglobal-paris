@@ -1,8 +1,10 @@
 // quick hack generated from manifest
 // todo: move to core
 
-const fs = require("fs");
-const path = require("path");
+// const fs = require("fs");
+import * as fs from 'fs'; 
+import * as path from 'path'; 
+// const path = require("path");
 
 // Path to the input JSON file
 const jsonFilePath = path.resolve(__dirname, "manifest.json");
